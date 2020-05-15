@@ -10,8 +10,8 @@ const SlideWrapper = styled.div`
 
 const Slide = styled.section`
 	position: relative;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 `;
 
 const Scroll = ({ slides, currentIndex = 0, scrollSensivity = 65 }) => {
