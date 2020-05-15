@@ -2,4 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border: none;
+    background: none;
+}
+
+#app-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 768px;
+    width: 1024px;
+    overflow: hidden;
 }
