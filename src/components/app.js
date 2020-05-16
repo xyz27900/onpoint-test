@@ -63,17 +63,103 @@ const circlesData = [
 	}
 ];
 
+const GothamPro = '\'Gotham Pro\', sans-serif';
+const LatoRegular = '\'LatoRegular\', sans-serif';
+const blueColor = '#0d319c';
+const whiteColor = '#ffffff';
+
+const textBlocksData = [
+	[
+		{
+			x: 73,
+			y: 144,
+			color: blueColor,
+			fontFamily: GothamPro,
+			fontSize: '50px',
+			fontTracking: -.01,
+			text: 'Всегда ли цели терапии СД2 на поверхности?'
+		},
+		{
+			x: 625,
+			y: 273,
+			color: blueColor,
+			fontFamily: LatoRegular,
+			fontSize: '20px',
+			fontTracking: .01,
+			text: 'Цель по HbA1c'
+		},
+		{
+			x: 223,
+			y: 397,
+			color: blueColor,
+			fontFamily: LatoRegular,
+			fontSize: '20px',
+			fontTracking: .01,
+			text: 'Гипогликемия'
+		},
+		{
+			x: 369,
+			y: 507,
+			color: blueColor,
+			fontFamily: LatoRegular,
+			fontSize: '20px',
+			fontTracking: .01,
+			text: 'Осложнения СД'
+		},
+		{
+			x: 791,
+			y: 487,
+			color: blueColor,
+			fontFamily: LatoRegular,
+			fontSize: '20px',
+			fontTracking: .01,
+			text: 'СС риски'
+		}
+	],
+	[
+		{
+			x: 277,
+			y: 255,
+			width: 470,
+			color: whiteColor,
+			fontFamily: GothamPro,
+			fontSize: '50px',
+			textAlign: 'center',
+			fontTracking: -.01,
+			fontWeight: 300,
+			text: 'Основа терапии — патогенез СД2'
+		}
+	]
+];
+
+const TextBlock = styled.div`
+	position: absolute;
+	top: ${props => props.y}px;
+	left: ${props => props.x}px;
+	width: ${props => props.width ? props.width + 'px' : 'auto'};
+	color: ${props => props.color ? props.color : '#000000'};
+	font-family: ${props => props.fontFamily? props.fontFamily : 'sans-serif'};
+	font-size: ${props => props.fontSize? props.fontSize : '14pt'};
+	font-weight: ${props => props.fontWeight ? props.fontWeight : 400};
+	line-height: 1.2;
+	text-align: ${props => props.textAlign ? props.textAlign : 'left'};
+	letter-spacing: ${props => props.fontTracking ? props.fontTracking + 'em' : 'normal'};
+`;
+
 const App = () => {
 	return <Scroll slides={[
 		[
 			<Layer key="slide-1-background" image={slide_1_background} />,
 			<Layer key="slide-1-circles">
+				{textBlocksData[0].map((block, index) => <TextBlock key={`text-block-${index}`} {...block}>{block.text}</TextBlock>)}
 				{circlesData.map((circle, index) => <PulseCircle key={`circle-${index}`} {...circle} />)}
 			</Layer>
 		],
 		[
 			<Layer key="slide-2-background" image={slide_2_background} />,
-			<Layer key="slide-2-particles" image={slide_2_particles} />
+			<Layer key="slide-2-particles" image={slide_2_particles} >
+				{textBlocksData[1].map((block, index) => <TextBlock key={`text-block-${index}`} {...block}>{block.text}</TextBlock>)}
+			</Layer>
 		],
 		[
 			<Layer key="slide-3-background" image={slide_3_background} />,
