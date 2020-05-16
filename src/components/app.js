@@ -11,6 +11,16 @@ import slide_3_3 from '../images/particles/slide-3-3.png';
 import styled from 'styled-components';
 import PulseCircle from './ui/pulseCircle';
 
+const colors = {
+	blue: '#0d319c',
+	white: '#ffffff'
+};
+
+const fonts = {
+	gotham: '\'Gotham Pro\', sans-serif',
+	lato: '\'LatoRegular\', sans-serif'
+};
+
 const tabsData = [
 	{
 		background: `url(${slide_3_1})`,
@@ -63,18 +73,13 @@ const circlesData = [
 	}
 ];
 
-const GothamPro = '\'Gotham Pro\', sans-serif';
-const LatoRegular = '\'LatoRegular\', sans-serif';
-const blueColor = '#0d319c';
-const whiteColor = '#ffffff';
-
 const textBlocksData = [
 	[
 		{
 			x: 73,
 			y: 144,
-			color: blueColor,
-			fontFamily: GothamPro,
+			color: colors.blue,
+			fontFamily: fonts.gotham,
 			fontSize: '50px',
 			fontTracking: -.01,
 			text: 'Всегда ли цели терапии СД2 на поверхности?'
@@ -82,8 +87,8 @@ const textBlocksData = [
 		{
 			x: 625,
 			y: 273,
-			color: blueColor,
-			fontFamily: LatoRegular,
+			color: colors.blue,
+			fontFamily: fonts.lato,
 			fontSize: '20px',
 			fontTracking: .01,
 			text: 'Цель по HbA1c'
@@ -91,8 +96,8 @@ const textBlocksData = [
 		{
 			x: 223,
 			y: 397,
-			color: blueColor,
-			fontFamily: LatoRegular,
+			color: colors.blue,
+			fontFamily: fonts.lato,
 			fontSize: '20px',
 			fontTracking: .01,
 			text: 'Гипогликемия'
@@ -100,8 +105,8 @@ const textBlocksData = [
 		{
 			x: 369,
 			y: 507,
-			color: blueColor,
-			fontFamily: LatoRegular,
+			color: colors.blue,
+			fontFamily: fonts.lato,
 			fontSize: '20px',
 			fontTracking: .01,
 			text: 'Осложнения СД'
@@ -109,8 +114,8 @@ const textBlocksData = [
 		{
 			x: 791,
 			y: 487,
-			color: blueColor,
-			fontFamily: LatoRegular,
+			color: colors.blue,
+			fontFamily: fonts.lato,
 			fontSize: '20px',
 			fontTracking: .01,
 			text: 'СС риски'
@@ -121,8 +126,8 @@ const textBlocksData = [
 			x: 277,
 			y: 255,
 			width: 470,
-			color: whiteColor,
-			fontFamily: GothamPro,
+			color: colors.white,
+			fontFamily: fonts.gotham,
 			fontSize: '50px',
 			textAlign: 'center',
 			fontTracking: -.01,
