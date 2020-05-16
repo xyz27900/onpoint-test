@@ -11,7 +11,6 @@ const Svg = styled.svg`
 `;
 
 const circleAnimation = (min, max) => keyframes`
-		${console.log(min, max)}
 		from {
 			r: ${min};
 			stroke-opacity: 0;
