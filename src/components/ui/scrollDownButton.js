@@ -26,10 +26,15 @@ const fadeOut = keyframes`
 const NextButton = styled.button`
 	position: fixed;
 	bottom: 0;
-	display: inline-block;
+	display: block;
+	line-height: 0;
 	width: 100%;
-	vertical-align: bottom;
+	text-align: center;
 	animation: ${props => props.visible ? fadeIn : fadeOut} 1s ease-out;
+`;
+
+const Img = styled.img`
+	display: inline-block;
 `;
 
 const ScrollDownButton = ({ isVisible = true, onClick }) => {
@@ -47,7 +52,7 @@ const ScrollDownButton = ({ isVisible = true, onClick }) => {
 			onClick={onClick}
 			visible={isVisible}
 			onAnimationEnd={handleAnimationEnd}>
-			<img src={scrollDownImage} />
+			<Img src={scrollDownImage} alt="Листайте вниз" accessKey="W" />
 		</NextButton>;
 };
 
