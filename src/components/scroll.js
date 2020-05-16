@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ScrollDownButton from '../components/ui/scrollDownButton';
+import Pagination from './ui/pagination';
 
 const SlideWrapper = styled.div`
 	position: absolute;
@@ -47,6 +48,7 @@ const Scroll = ({ slides, currentIndex = 0, scrollSensivity = 65 }) => {
 
 
 	return <Fragment>
+		<Pagination count={slides.length} active={active} onItemClick={setActive} />
 		{
 			slides
 				.reduce(($, row) => row.map((_, i) => [...($[i] || []), row[i]]), [])
