@@ -1,19 +1,19 @@
 @font-face {
-    font-family: GothamPro;
+    font-family: Gotham Pro;
     src: url('./fonts/GothamPro.eot');
-    src: local(GothamPro), url('./fonts/GothamPro.ttf');
+    src: local(Gotham Pro), url('./fonts/GothamPro.ttf');
 }
 
 @font-face {
-	font-family: GothamProLight;
+	font-family: Gotham Pro Light;
 	src: url('./fonts/GothamProLight.ttf') format("opentype");
-	src: local(GothamProLight), url('./fonts/GothamProLight.ttf');
+	src: local(Gotham Pro Light), url('./fonts/GothamProLight.ttf');
 }
 
 @font-face {
-	font-family: LatoRegular;
+	font-family: Lato Regular;
 	src: url('./fonts/LatoRegular.ttf') format("opentype");
-	src: local(LatoRegular), url('./fonts/LatoRegular.ttf');
+	src: local(Lato Regular), url('./fonts/LatoRegular.ttf');
 }
 
 * {

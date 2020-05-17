@@ -9,7 +9,7 @@ const colors = {
 
 const fonts = {
 	gotham: '\'Gotham Pro\', sans-serif',
-	lato: '\'LatoRegular\', sans-serif'
+	lato: '\'Lato Regular\', sans-serif'
 };
 
 const animate = (from, to, callback, speed = 10) => {
