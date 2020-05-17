@@ -19,17 +19,18 @@ const SliderWrapper = styled.div`
 	width: 640px;
 	height: 12px;
 	z-index: 8;
-	&::after {
+	&::before {
 		content: ' ';
 		display: block;
 		width: 100%;
 		height: 12px;
-		background: #aaaaaa;
-		opacity: .5;
+		background: ${colors.gray};
+		opacity: .35;
 		position: absolute;
 		top: 0;
 		left: 0;
 		z-index: 1;
+		border-radius: 2px;
 	}
 	.range {
 		-webkit-appearance: none;
@@ -37,7 +38,7 @@ const SliderWrapper = styled.div`
 		position: relative;
 		top: 0;
 		display: block;
-		z-index: 2;
+		z-index: 3;
 		transform: translateY(calc(-50% + 6px));
 
 		&::-webkit-slider-runnable-track {
@@ -56,6 +57,17 @@ const SliderWrapper = styled.div`
 			${props => sliderThumbStyles(props)}
 		}
 	}
+`;
+
+const Indicator = styled.div`
+	display: block;
+	height: 12px;
+	background: ${colors.lightblue};
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	border-radius: 2px;
 `;
 
 const Values =  styled.div`
@@ -95,6 +107,7 @@ const Slider = ({ items, thumbImage, thumbImageSize, onChange }) => {
 	};
 
 	return <SliderWrapper image={thumbImage} imageSize={thumbImageSize}>
+		<Indicator value={value} style={{ width: `${value / 10}%` }} />
 		<input type="range" min={0} max={range} value={value} className="range" onChange={handleChange} onTouchEnd={handleTouchEnd} />
 		<Values>{items.map((item, index) => <Value key={`value-${index}`}>{item}</Value>)}</Values>
 	</SliderWrapper>;
