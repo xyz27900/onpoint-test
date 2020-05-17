@@ -11,12 +11,13 @@ const fonts = {
 	lato: '\'LatoRegular\', sans-serif'
 };
 
-const animate = (from, to, callback, speed = 25) => {
+const animate = (from, to, callback, speed = 10) => {
 	let value = from;
 	const frame = () => {
 		if (!pointReached(from, to, value)) {
 			const distance = Math.abs(value - to);
-			value = parseInt(value) + (value > to ? -1 : 1) * (distance >= speed ? speed : distance);
+			value = parseInt(value) + (value > to ? -1 : 1) *
+				Math.ceil((distance >= speed ? speed : distance)  * timingFunction(Math.abs((value - to) / (from - to))));
 			callback(value);
 			window.requestAnimationFrame(frame);
 		}
@@ -25,6 +26,8 @@ const animate = (from, to, callback, speed = 25) => {
 };
 
 const pointReached = (from, to, current) => from > to ? current <= to : current >= to;
+
+const timingFunction = x => x * (2 - x);
 
 export {
 	colors,
