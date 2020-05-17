@@ -13,16 +13,7 @@ import slide_3_2_content from '../images/content/slide-3-2.png';
 import slide_3_3_content from '../images/content/slide-3-3.png';
 import styled from 'styled-components';
 import PulseCircle from './ui/pulseCircle';
-
-const colors = {
-	blue: '#0d319c',
-	white: '#ffffff'
-};
-
-const fonts = {
-	gotham: '\'Gotham Pro\', sans-serif',
-	lato: '\'LatoRegular\', sans-serif'
-};
+import { colors, fonts } from './helpers';
 
 const Layer = styled.div`
 	position: relative;

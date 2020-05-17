@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { colors } from '../helpers';
 
 const Nav = styled.nav`
     position: fixed;
@@ -18,7 +19,7 @@ const NavItem = styled.div`
 	width: 13px;
 	height: 13px;
 	border-radius: 50%;
-	background: ${props => props.active ? '#f78b1f' : '#ffffff'};
+	background: ${props => props.active ? colors.orange : colors.white};
 `;
 
 const Pagination = ({ count, active, onItemClick }) => (

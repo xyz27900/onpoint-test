@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { colors, fonts } from '../helpers';
 
 const sliderThumbStyles = ({ image, imageSize }) => `
 	width: ${imageSize[0]}px;
@@ -66,9 +67,9 @@ const Values =  styled.div`
 `;
 
 const Value = styled.div`
-	color: '#ffffff';
+	color: ${colors.white};
 	font-size: 20px;
-	font-family: '\'Gotham Pro\', sans-serif'
+	font-family: ${fonts.gotham}
 `;
 
 const Slider = ({ items, thumbImage, thumbImageSize, onChange }) => {
