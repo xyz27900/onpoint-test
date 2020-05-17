@@ -84,10 +84,12 @@ const Value = styled.div`
 	font-family: ${fonts.gotham}
 `;
 
-const Slider = ({ items, thumbImage, thumbImageSize, onChange }) => {
+const Slider = ({ items, points, thumbImage, thumbImageSize, onChange }) => {
 	const range = 1000;
 	const [value, setValue] = useState(0);
-	const [breakpoints] = useState([...items.map((_, index) => range / items.length * index), range]);
+	const [breakpoints] = useState(Array.isArray(points) && points.length === items.length + 1 ?
+		points :
+		[...items.map((_, index) => range / items.length * index), range]);
 	const [values] = useState([...items.map((_, index) => range / (items.length - 1) * index)]);
 	const getIntervalIndex = (value, callback) => {
 		for (let i = 0; i < breakpoints.length - 1; i++) {
@@ -116,7 +118,8 @@ const Slider = ({ items, thumbImage, thumbImageSize, onChange }) => {
 export default Slider;
 
 Slider.propTypes = {
-	items: PropTypes.array,
+	items: PropTypes.arrayOf(PropTypes.node),
+	points: PropTypes.arrayOf(PropTypes.number),
 	thumbImage: PropTypes.string,
 	thumbImageSize: PropTypes.arrayOf(PropTypes.number),
 	onChange: PropTypes.func

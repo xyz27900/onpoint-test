@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import Slider from './ui/slider';
 import sliderThumbImage from '../images/ui/slider-thumb.png';
 
-const sliderThumbSize = [43, 56];
-
 const Wrapper = styled.div`
     position: relative;
     top: 0;
@@ -32,13 +30,20 @@ const TabItem = styled.div`
 `;
 
 const sliderData = [ '1988', '2009', '2016' ];
+const sliderBreakPoints = [0, 250, 750, 1000];
+const sliderThumbSize = [43, 56];
 
 const Tabs = ({ tabs, activeIndex = 0 }) => {
 	const transitionDuration = 1000;
 	const [active, setActive] = useState(activeIndex);
 
 	return <Wrapper>
-		<Slider items={sliderData} thumbImage={sliderThumbImage} thumbImageSize={sliderThumbSize} onChange={setActive} />
+		<Slider
+			items={sliderData}
+			points={sliderBreakPoints}
+			thumbImage={sliderThumbImage}
+			thumbImageSize={sliderThumbSize}
+			onChange={setActive} />
 		<TabsWrapper translateX={active * - 100 / tabs.length} duration={transitionDuration}>
 			{
 				tabs.map((tab, index) => <TabItem key={index} background={tab.background}>{tab.content}</TabItem>)
