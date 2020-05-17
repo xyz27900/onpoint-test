@@ -9,6 +9,7 @@ const colors = {
 
 const fonts = {
 	gotham: '\'Gotham Pro\', sans-serif',
+	gothamLight: '\'Gotham Pro Light\', sans-serif',
 	lato: '\'Lato Regular\', sans-serif'
 };
 

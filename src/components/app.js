@@ -98,7 +98,7 @@ const textBlocksData = [
 			y: 255,
 			width: 470,
 			color: colors.white,
-			fontFamily: fonts.gotham,
+			fontFamily: fonts.gothamLight,
 			fontSize: '50px',
 			textAlign: 'center',
 			fontTracking: -.01,
