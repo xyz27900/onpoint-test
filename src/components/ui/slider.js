@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, fonts } from '../helpers';
+import { colors, fonts, animate } from '../helpers';
 
 const sliderThumbStyles = ({ image, imageSize }) => `
 	width: ${imageSize[0]}px;
@@ -103,7 +103,7 @@ const Slider = ({ items, thumbImage, thumbImageSize, onChange }) => {
 		getIntervalIndex(value, onChange);
 	};
 	const handleTouchEnd = () => {
-		getIntervalIndex(value, (n) => setValue(values[n]));
+		getIntervalIndex(value, (n) => animate(value, values[n], setValue));
 	};
 
 	return <SliderWrapper image={thumbImage} imageSize={thumbImageSize}>
