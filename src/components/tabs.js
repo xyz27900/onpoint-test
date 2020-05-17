@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Slider from './ui/slider';
+import sliderThumbImage from '../images/ui/slider-thumb.png';
 
 const Wrapper = styled.div`
     position: relative;
@@ -11,7 +13,7 @@ const Wrapper = styled.div`
     overflow: hidden
 `;
 
-const TabsCassete = styled.div`
+const TabsWrapper = styled.div`
     display: flex;
     flex-direction: row;
     width: fit-content;
@@ -30,16 +32,14 @@ const TabItem = styled.div`
 const Tabs = ({ tabs, activeIndex = 0 }) => {
 	const transitionDuration = 1000;
 	const [active, setActive] = useState(activeIndex);
-	const handleClick = () => {
-		setActive(active + 1);
-	};
 
-	return <Wrapper onClick={handleClick}>
-		<TabsCassete translateX={active * - 100 / tabs.length} duration={transitionDuration}>
+	return <Wrapper>
+		<Slider items={Array(3).fill(0)} thumbImage={sliderThumbImage} onChange={setActive} />
+		<TabsWrapper translateX={active * - 100 / tabs.length} duration={transitionDuration}>
 			{
 				tabs.map((tab, index) => <TabItem key={index} background={tab.background}>{tab.content}</TabItem>)
 			}
-		</TabsCassete>
+		</TabsWrapper>
 	</Wrapper>;
 };
 
