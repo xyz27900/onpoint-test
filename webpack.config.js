@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -26,11 +27,13 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jpe?g)$/,
-				use: { loader: 'file-loader' }
+				loader: 'file-loader',
+				options: { name: './images/[name].[hash].[ext]' }
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)$/,
-				loader: 'file-loader'
+				loader: 'file-loader',
+				options: { name: './fonts/[name].[hash].[ext]' }
 			}
 		]
 	},
