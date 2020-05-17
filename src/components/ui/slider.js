@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const sliderThumbStyles = ({ image, width, height }) => `
-	width: 43px;
-	height: 56px;
+const sliderThumbStyles = ({ image, imageSize }) => `
+	width: ${imageSize[0]}px;
+	height: ${imageSize[1]}px;
 	cursor: pointer;
 	background-image: url(${image});
 	background-repeat: no-repeat;
@@ -13,7 +13,7 @@ const sliderThumbStyles = ({ image, width, height }) => `
 
 const SliderWrapper = styled.div`
 	position: absolute;
-	bottom: 74px;
+	top: 682px;
 	left: 192px;
 	width: 640px;
 	height: 12px;
@@ -57,11 +57,25 @@ const SliderWrapper = styled.div`
 	}
 `;
 
-const Slider = ({ items, thumbImage, onChange }) => {
+const Values =  styled.div`
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	top: -10px;
+	margin: 0 -20px;
+`;
+
+const Value = styled.div`
+	color: '#ffffff';
+	font-size: 20px;
+	font-family: '\'Gotham Pro\', sans-serif'
+`;
+
+const Slider = ({ items, thumbImage, thumbImageSize, onChange }) => {
 	const range = 1000;
 	const [value, setValue] = useState(0);
 	const [breakpoints] = useState([...items.map((_, index) => range / items.length * index), range]);
-	const [values] = useState([...items.map((_, index) => range / (items.length - 1) * index), range]);
+	const [values] = useState([...items.map((_, index) => range / (items.length - 1) * index)]);
 	const getIntervalIndex = (value, callback) => {
 		for (let i = 0; i < breakpoints.length - 1; i++) {
 			if (value >= 0 && value > breakpoints[i] && value <= breakpoints[i + 1]) {
@@ -79,8 +93,9 @@ const Slider = ({ items, thumbImage, onChange }) => {
 		getIntervalIndex(value, (n) => setValue(values[n]));
 	};
 
-	return <SliderWrapper image={thumbImage}>
+	return <SliderWrapper image={thumbImage} imageSize={thumbImageSize}>
 		<input type="range" min={0} max={range} value={value} className="range" onChange={handleChange} onTouchEnd={handleTouchEnd} />
+		<Values>{items.map((item, index) => <Value key={`value-${index}`}>{item}</Value>)}</Values>
 	</SliderWrapper>;
 };
 
@@ -89,5 +104,6 @@ export default Slider;
 Slider.propTypes = {
 	items: PropTypes.array,
 	thumbImage: PropTypes.string,
+	thumbImageSize: PropTypes.arrayOf(PropTypes.number),
 	onChange: PropTypes.func
 };
