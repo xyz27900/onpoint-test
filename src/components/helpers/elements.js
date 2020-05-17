@@ -24,4 +24,17 @@ const TextBlock = styled.div`
 	letter-spacing: ${props => props.fontTracking ? props.fontTracking + 'em' : 'normal'};
 `;
 
-export { Layer, TextBlock };
+const AppContainer = styled.div`
+	position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+	width: 100%;
+	min-height: 100vw;
+	min-height: 100vh;
+    overflow: hidden;
+`;
+
+export {
+	Layer, TextBlock, AppContainer
+};
