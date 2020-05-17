@@ -14,7 +14,7 @@ const circleAnimation = (min, max) => keyframes`
 		from {
 			r: ${min};
 			stroke-opacity: 0;
-			fill-opacity: .62
+			fill-opacity: .88;
 		}
 
 		to {
