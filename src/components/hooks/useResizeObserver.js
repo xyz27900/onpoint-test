@@ -1,4 +1,5 @@
 import { useRef, useLayoutEffect, useEffect, useState, useCallback } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
 
 // eslint-disable-next-line no-undef
 const useIsomorphicLayoutEffect = global.window ? useLayoutEffect : useEffect; // In case of SSR
