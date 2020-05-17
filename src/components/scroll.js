@@ -62,7 +62,7 @@ const Scroll = ({ slides, currentIndex = 0, scrollSensivity = 65 }) => {
 							layer.map((slide, slideIndex) => slide &&
 								<Slide
 									key={`slide-${slideIndex}`}
-									top={115 * slideIndex * (slideIndex && layerIndex)}>{slide}</Slide>) // TODO Fix '115' - it shoul be a math expression
+									top={115 * slideIndex * (slideIndex && layerIndex)}>{slide}</Slide>)
 						}
 					</SlideWrapper>
 				))

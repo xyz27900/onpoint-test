@@ -30,7 +30,7 @@ const NextButton = styled.button`
 	line-height: 0;
 	width: 100%;
 	text-align: center;
-	animation: ${props => props.visible ? fadeIn : fadeOut} 1s ease-out;
+	animation: ${props => props.visible ? fadeIn : fadeOut} .5s ease-out;
 `;
 
 const Img = styled.img`
