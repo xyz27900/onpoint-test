@@ -1,9 +1,28 @@
+@font-face {
+    font-family: GothamPro;
+    src: url('./fonts/GothamPro.eot');
+    src: local(GothamPro), url('./fonts/GothamPro.ttf');
+}
+
+@font-face {
+	font-family: GothamProLight;
+	src: url('./fonts/GothamProLight.ttf') format("opentype");
+	src: local(GothamProLight), url('./fonts/GothamProLight.ttf');
+}
+
+@font-face {
+	font-family: LatoRegular;
+	src: url('./fonts/LatoRegular.ttf') format("opentype");
+	src: local(LatoRegular), url('./fonts/LatoRegular.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     border: none;
     background: none;
+    outline: none;
 }
 
 #app-container {
