@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Scroll from './scroll';
 import Tabs from './tabs';
 import slide_1_background from '../images/backgrounds/slide-1.png';
@@ -14,6 +14,7 @@ import slide_3_3_content from '../images/content/slide-3-3.png';
 import PulseCircle from './ui/pulseCircle';
 import { colors, fonts } from './helpers/utils';
 import { Layer, TextBlock } from './helpers/elements';
+import Placeholder from './ui/placeholder';
 
 const circlesData = [
 	{
@@ -721,25 +722,30 @@ const tabsData = [
 ];
 
 const App = () => {
-	return <Scroll slides={[
-		[
-			<Layer key="slide-1-background" image={slide_1_background} />,
-			<Layer key="slide-1-circles">
-				{textBlocksData[0].map((block, index) => <TextBlock key={`text-block-${index}`} {...block}>{block.text}</TextBlock>)}
-				{circlesData.map((circle, index) => <PulseCircle key={`circle-${index}`} {...circle} />)}
-			</Layer>
-		],
-		[
-			<Layer key="slide-2-background" image={slide_2_background} />,
-			<Layer key="slide-2-particles" image={slide_2_particles} >
-				{textBlocksData[1].map((block, index) => <TextBlock key={`text-block-${index}`} {...block}>{block.text}</TextBlock>)}
-			</Layer>
-		],
-		[
-			<Layer key="slide-3-background" image={slide_3_background} />,
-			<Tabs key="slide-3-tabs" tabs={tabsData} />
-		]
-	]} />;
+	const [isIPad, setIPad] = useState(false);
+
+
+	return isIPad ?
+		<Scroll slides={[
+			[
+				<Layer key="slide-1-background" image={slide_1_background} />,
+				<Layer key="slide-1-circles">
+					{textBlocksData[0].map((block, index) => <TextBlock key={`text-block-${index}`} {...block}>{block.text}</TextBlock>)}
+					{circlesData.map((circle, index) => <PulseCircle key={`circle-${index}`} {...circle} />)}
+				</Layer>
+			],
+			[
+				<Layer key="slide-2-background" image={slide_2_background} />,
+				<Layer key="slide-2-particles" image={slide_2_particles} >
+					{textBlocksData[1].map((block, index) => <TextBlock key={`text-block-${index}`} {...block}>{block.text}</TextBlock>)}
+				</Layer>
+			],
+			[
+				<Layer key="slide-3-background" image={slide_3_background} />,
+				<Tabs key="slide-3-tabs" tabs={tabsData} />
+			]
+		]} /> :
+		<Placeholder>Запустите в режиме совместимости с iPad<br/>1024 x 768</Placeholder>;
 };
 
 export default App;
